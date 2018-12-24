@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="lib/d3/d3.js" charset="utf-8"></script>
+    <script src="lib/d3/d3.layout.cloud.js"></script>
+    <script src="lib/d3.wordcloud.js"></script>
+    <script src="lib/words.js"></script>
+  </head>
+  <body style="text-align: center">
+    <div id='wordcloud'></div>
+    <script>
+      d3.wordcloud()
+        .size([480, 240])
+        .fill(d3.scale.ordinal().range(["#884400", "#448800", "#888800", "#444400"]))
+        .words(words)
+        .onwordclick(function(d, i) {
+          if (d.href) { window.location = d.href; }
+        })
+        .start();
+    </script>
+  </body>
+</html>
+
